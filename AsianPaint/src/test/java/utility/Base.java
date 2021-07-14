@@ -10,7 +10,7 @@ import pageFactory.MyprofilePageOject;
 
 public class Base 
 {
-	public static ConfigFileReader configFileReader;
+	static ConfigFileReader configFileReader;
 	public static WebDriver lonchApplication(String browser, String baseUrl,String  driverPath)
 	{
 
@@ -54,6 +54,10 @@ public class Base
 	public static String getPageTitle(WebDriver driver)
 	{
 		return driver.getTitle();
+	}
+	public static void stop(WebDriver driver)
+	{
+		driver.quit();
 	}
 	
 }

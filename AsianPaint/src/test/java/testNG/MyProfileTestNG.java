@@ -9,14 +9,16 @@ import utility.Base;
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 
 public class MyProfileTestNG extends Base
 {
 	WebDriver driver;
 	ConfigFileReader configFileReader;
 	MyprofilePageOject myprofilePageOject;
-	@BeforeTest
+	@BeforeMethod
 	public void launchApplication() 
 	{
 		configFileReader=new ConfigFileReader();
@@ -26,7 +28,7 @@ public class MyProfileTestNG extends Base
 	}
 
 	@Test
-	public void f()
+	public void myProfile()
 	{
 		String actualTitle="My Profile";
 		myprofilePageOject.clickOnMyProfileIcon();
@@ -35,7 +37,7 @@ public class MyProfileTestNG extends Base
 		Assert.assertEquals(actualTitle, pageTitle);
 	}
 
-	@AfterTest
+	@AfterMethod
 	public void afterTest() {
 		driver.quit();
 	}

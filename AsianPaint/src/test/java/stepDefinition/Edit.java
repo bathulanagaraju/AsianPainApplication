@@ -59,7 +59,7 @@ public class Edit extends Base
 
 	@Then("close the browser")
 	public void close_the_browser() {
-		driver.quit();
+		Base.stop(driver);
 	}
 	@When("Remove the existing Mobile Number and Enter the invalid MobileNumber as {string}")
 	public void remove_the_existing_Mobile_Number_and_Enter_the_invalid_MobileNumber_as(String mobileNumber) {
@@ -71,6 +71,9 @@ public class Edit extends Base
 	   String error= editPersonalInformation.errorMessage();
 	   String actualError1="Please enter 10 digits mobile number.";
 	   String actualError2="Please enter digits only.";
+	   System.out.println("**********************************************");
+	   System.out.println(error);
+	   System.out.println("***********************************************");
 	   if(error==actualError1)
 	   {
 	   assertEquals(actualError1, error);
@@ -79,6 +82,7 @@ public class Edit extends Base
 	   {
 		  assertEquals(actualError2, error); 
 	   }
+	   driver.quit();
 	}
 
 

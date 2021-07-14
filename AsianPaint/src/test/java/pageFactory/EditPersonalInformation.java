@@ -14,12 +14,12 @@ public class EditPersonalInformation
   @FindBy(id = "editProfile") WebElement linkEdit;
 	@FindBy(name = "profile_fname") WebElement textFirstName;
 	@FindBy(name = "profile_lname") WebElement textLastName;
-	@FindBy(xpath  = "//ul[@class='input-list-grp col-md-6']/li[3]/input[@type='date']") WebElement textDob;
+	@FindBy(xpath  = "////ul[@class='input-list-grp col-md-6']/li/input[@type='date']") WebElement textDob;
 	@FindBy(xpath = "//select[@class='ui-datepicker-year']") WebElement selYear;
 	@FindBy(xpath = "//select[@class='ui-datepicker-month']") WebElement selMonth;
-	@FindBy(xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr[2]/td[4]/a") WebElement selDay;
+	@FindBy(xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[text()=5]") WebElement selDay;
 	@FindBy(name = "profile_mobile") WebElement textMobileNumber;
-	@FindBy(xpath = "//a[@class='global-button-white btn-style2 ap_user_profile_btn']") WebElement linkupdate;
+	@FindBy(xpath = "//a[text()='Update']") WebElement linkupdate;
 	@FindBy(xpath = "//div[@id='profile_mobile-error']") WebElement errorMessage;
 	public EditPersonalInformation(WebDriver driver) {
 		super();

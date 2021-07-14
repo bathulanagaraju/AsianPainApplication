@@ -11,7 +11,9 @@ import org.testng.annotations.BeforeTest;
 import java.awt.AWTException;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 
 public class UploadProfileTestNG extends Base
 {
@@ -21,11 +23,13 @@ public class UploadProfileTestNG extends Base
   @Test
   public void uploadProfilePicter() throws AWTException, InterruptedException 
   {
+	  Base.myProfile(driver);
 	  object.clickOnUpload();
 	  
 	  
+	  
   }
-  @BeforeTest
+  @BeforeMethod
   public void lanchApplication() 
   {
 	  configFileReader=new ConfigFileReader();
@@ -34,10 +38,10 @@ public class UploadProfileTestNG extends Base
 	  object=new UploadProfilePageObject(driver);
   }
 
-  @AfterTest
+  @AfterMethod
   public void stop() 
   {
-	  driver.quit();
+	 
   }
 
 }

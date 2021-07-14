@@ -35,9 +35,11 @@ public class Myprofile extends Base
 	}
 
 	@Then("customer  should be on My Profile page")
-	public void customer_should_be_on_My_Profile_page() {
+	public void customer_should_be_on_My_Profile_page() throws InterruptedException {
 	   String actualTitle="My Profile";
 	   String pageTitle=Myprofile.getPageTitle(driver);
 	   assertEquals(actualTitle, pageTitle);
+	   Thread.sleep(5000);
+	   driver.quit();
 	}
 }

@@ -10,7 +10,9 @@ import stepDefinition.Edit;
 
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 
 public class EditPersonalInfoTestNG {
 	WebDriver driver;
@@ -20,9 +22,9 @@ public class EditPersonalInfoTestNG {
   @Test(priority = 1)
   public void editPersonalInfo() 
   {
-	  String firstName=reader.getCellData("PersonalInfo", "FirstName", 2);
-	  String lastName=reader.getCellData("PersonalInfo", "LastName", 2);
-	  String mobileNumber=reader.getCellData("PersonalInfo", "MobileNumber", 2);
+	  String firstName=reader.getCellData("PersonalInformation", "FirstName", 2);
+	  String lastName=reader.getCellData("PersonalInformation", "LastName", 2);
+	  String mobileNumber=reader.getCellData("PersonalInformation", "MobileNumber", 2);
 	  editPersonalInformation.clickOnEdit();
 	  editPersonalInformation.clickOnFirstName(firstName);
 	  editPersonalInformation.clickOnLastName(lastName);
@@ -31,17 +33,19 @@ public class EditPersonalInfoTestNG {
 	  editPersonalInformation.clickOnUpdate();
   }
   @Test(priority = 2)
-  public void editMobileNumber(String mobileNumber) 
+  public void editMobileNumber() 
   {
 	  for(int i=2;i<=reader.getRowCount("MobileNumber");i++)
 	  {
+		  String mobileNumber=reader.getCellData("InvalidMobileNumber", "MobileNumber", i);
 		  editPersonalInformation.clickOnEdit();
 		  editPersonalInformation.clickOnMobile(mobileNumber);
 		  editPersonalInformation.errorMessage();
-		  
+		  editPersonalInformation.clickOnMobile( configFileReader.getMobileNumber());
+		  editPersonalInformation.clickOnUpdate();
 	  }
   }
-  @BeforeTest
+  @BeforeMethod
   public void launchApplication() {
 	  configFileReader=new ConfigFileReader();
       driver=Edit.lonchApplication("chrom", configFileReader.getApplicationUrl(), configFileReader.getDriverPath());
@@ -50,7 +54,7 @@ public class EditPersonalInfoTestNG {
       editPersonalInformation=new EditPersonalInformation(driver);
   }
 
-  @AfterTest
+  @AfterMethod
   public void stop() {
 	  driver.quit();
   }

@@ -45,9 +45,44 @@ public class ConfigFileReader {
 		if(url != null) return url;
 		else throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
+	public String getSheatName1() {
+		String sheatName1 = properties.getProperty("sheatName1");
+		if(sheatName1 != null) return sheatName1;
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
 	public String getMobileNumber() {
 		String mobileNumber = properties.getProperty("mobileNumber");
 		if(mobileNumber != null) return mobileNumber;
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+	public String getSheatName2() {
+		String sheatName2 = properties.getProperty("sheatName2");
+		if(sheatName2 != null) return sheatName2;
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+	public int getRow() {
+		String rownum = properties.getProperty("rownum");
+		if(rownum != null)  return Integer.parseInt(rownum);
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+	public String getExcelPath() {
+		String excelPath = properties.getProperty("excelPath");
+		if(excelPath != null) return excelPath;
+		else throw new RuntimeException("excelPath not specified in the Configuration.properties file.");
+	}
+	public String getColume1() {
+		String colume1 = properties.getProperty("colume1");
+		if(colume1 != null) return colume1;
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+	public String getColume2() {
+		String colume2 = properties.getProperty("colume2");
+		if(colume2 != null) return colume2;
+		else throw new RuntimeException("url not specified in the Configuration.properties file.");
+	}
+	public String getColume3() {
+		String colume3 = properties.getProperty("colume3");
+		if(colume3 != null) return colume3;
 		else throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
    
