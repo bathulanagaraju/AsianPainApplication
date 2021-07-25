@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+  <parameter name="browser" value="ch"/>
+  <parameter name="username" value="Tester"/>
+  <parameter name="password" value="test"/>
+    <classes>
+      <class name="package1.TestCase5"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
